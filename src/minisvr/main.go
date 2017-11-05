@@ -30,7 +30,7 @@ func wssEcho(w http.ResponseWriter, r *http.Request) {
     }
 }
 
-func main() {
+func main() {.0000
     fmt.Println("start mini server...")
 
     http.HandleFunc("/wssEcho", wssEcho)
@@ -41,7 +41,7 @@ func main() {
     //点餐商户端
     handle_admin()
 
-    if err := http.ListenAndServeTLS("10.1.164.45:8081", "./conf/214316622370391.crt", "./conf/214316622370391.key", nil); err != nil {
+    if err := http.ListenAndServeTLS(":443", "./conf/214316622370391.crt", "./conf/214316622370391.key", nil); err != nil {
         panic("ListenAndServeTLS Error: " + err.Error())
     }
 }
