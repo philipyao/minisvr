@@ -30,7 +30,7 @@ func wssEcho(w http.ResponseWriter, r *http.Request) {
     }
 }
 
-func main() {.0000
+func main() {
     fmt.Println("start mini server...")
 
     http.HandleFunc("/wssEcho", wssEcho)

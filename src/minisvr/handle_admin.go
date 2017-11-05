@@ -1,16 +1,29 @@
 package main
 
 import (
-	"fmt"
     "net/http"
+	"fmt"
 )
 
+var (
+	initShops []*ShopProfile
+)
+
+func init() {
+	initShops = []*ShopProfile{
+		&ShopProfile{1, "三只汪外卖", "北京", "西城区xxx号"},
+		&ShopProfile{2, "三只汪外卖", "上海", "西城区xxx号"},
+	}
+}
 
 func admin_login(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "hello admin")
+	fmt.Fprint(w, "hello admin")
 }
 
 func admin_listshop(w http.ResponseWriter, r *http.Request) {
+	var rspmsg AdminListShopRsp
+	rspmsg.Shops = initShops
+	doWriteJson(w, rspmsg)
 }
 
 func admin_addshop(w http.ResponseWriter, r *http.Request) {
